@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+        <parameter key="terminal42_webling.subdomain">null</parameter>
+        <parameter key="terminal42_webling.api_key">null</parameter>
+        <parameter key="terminal42_webling.api_version" type="constant">\Terminal42\WeblingApi\EntityManager::VERSION</parameter>
+
+        <parameter key="terminal42_webling.client.class">Terminal42\WeblingApi\Client</parameter>
+        <parameter key="terminal42_webling.entity_factory.class">Terminal42\WeblingApi\EntityFactory</parameter>
+        <parameter key="terminal42_webling.entity_manager.class">Terminal42\WeblingApi\EntityManager</parameter>
+        <parameter key="terminal42_webling.repository.member.class">Terminal42\WeblingApi\Repository\MemberRepository</parameter>
+        <parameter key="terminal42_webling.repository.membergroup.class">Terminal42\WeblingApi\Repository\MembergroupRepository</parameter>
+    </parameters>
+
+    <services>
+        <service id="terminal42_webling.client" class="%terminal42_webling.client.class%">
+            <argument>%terminal42_webling.subdomain%</argument>
+            <argument>%terminal42_webling.api_key%</argument>
+            <argument>%terminal42_webling.api_version%</argument>
+        </service>
+
+        <service id="terminal42_webling.entity_factory" class="%terminal42_webling.entity_factory.class%" />
+
+        <service id="terminal42_webling.entity_manager" class="%terminal42_webling.entity_manager.class%">
+            <argument type="service" id="terminal42_webling.client" />
+            <argument type="service" id="terminal42_webling.entity_factory" />
+        </service>
+
+        <service id="terminal42_webling.repository.member" class="%terminal42_webling.repository.member.class%">
+            <argument type="service" id="terminal42_webling.entity_manager" />
+        </service>
+
+        <service id="terminal42_webling.repository.membergroup" class="%terminal42_webling.repository.membergroup.class%">
+            <argument type="service" id="terminal42_webling.entity_manager" />
+        </service>
+    </services>
+</container>

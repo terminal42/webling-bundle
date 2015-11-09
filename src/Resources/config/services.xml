@@ -7,6 +7,7 @@
         <parameter key="terminal42_webling.subdomain">null</parameter>
         <parameter key="terminal42_webling.api_key">null</parameter>
         <parameter key="terminal42_webling.api_version" type="constant">\Terminal42\WeblingApi\EntityManager::API_VERSION</parameter>
+        <parameter key="terminal42_webling.entity_factory">Terminal42\WeblingApi\EntityFactory</parameter>
     </parameters>
 
     <services>
@@ -16,7 +17,7 @@
             <argument>%terminal42_webling.api_version%</argument>
         </service>
 
-        <service id="terminal42_webling.entity_factory" class="Terminal42\WeblingApi\EntityFactory" />
+        <service id="terminal42_webling.entity_factory" class="%terminal42_webling.entity_factory%" />
 
         <service id="terminal42_webling.entity_manager" class="Terminal42\WeblingApi\EntityManager">
             <argument type="service" id="terminal42_webling.client" />

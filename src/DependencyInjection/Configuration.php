@@ -27,6 +27,10 @@ class Configuration implements ConfigurationInterface
                     ->isRequired()
                     ->cannotBeEmpty()
                 ->end()
+                ->scalarNode('entity_factory')
+                    ->cannotBeEmpty()
+                    ->defaultValue('Terminal42\WeblingApi\EntityFactory')
+                ->end()
             ->end()
         ;
 

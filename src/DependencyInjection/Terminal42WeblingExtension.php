@@ -23,5 +23,9 @@ class Terminal42WeblingExtension extends ConfigurableExtension
         );
 
         $loader->load('services.xml');
+
+        $container->setParameter('terminal42_webling.subdomain', $mergedConfig['subdomain']);
+        $container->setParameter('terminal42_webling.api_key', $mergedConfig['api_key']);
+        $container->setParameter('terminal42_webling.entity_factory', $mergedConfig['entity_factory']);
     }
 }

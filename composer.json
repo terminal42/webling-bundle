@@ -1,7 +1,6 @@
 {
     "name": "terminal42/webling-bundle",
     "description": "Symfony2 bundle for our Webling API client",
-    "minimum-stability": "dev",
     "license": "LGPL-3.0+",
     "authors": [
         {
@@ -10,10 +9,10 @@
         }
     ],
     "require": {
-        "terminal42/webling-api": "dev-develop",
-        "symfony/http-kernel": "~2.7",
-        "symfony/dependency-injection": "~2.7",
-        "symfony/config": "~2.7"
+        "terminal42/webling-api": "^1.0",
+        "symfony/http-kernel": "~2.7 || ^3.0",
+        "symfony/dependency-injection": "~2.7 || ^3.0",
+        "symfony/config": "~2.7 || ^3.0"
     },
     "require-dev": {
         "phpunit/phpunit": "~4.0"
@@ -22,5 +21,7 @@
         "psr-4": {
             "Terminal42\\WeblingBundle\\": "src"
         }
-    }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }

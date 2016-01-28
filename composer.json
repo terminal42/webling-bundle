@@ -22,6 +22,11 @@
             "Terminal42\\WeblingBundle\\": "src"
         }
     },
+    "extra": {
+        "branch-alias": {
+            "dev-develop": "1.0.x-dev"
+        }
+    },
     "minimum-stability": "dev",
     "prefer-stable": true
 }

@@ -3,17 +3,23 @@
     "description": "Symfony2 bundle for our Webling API client",
     "type": "symfony-bundle",
     "license": "LGPL-3.0+",
-    "authors": [
-        {
-            "name": "terminal42 gmbh",
-            "homepage": "https://www.terminal42.ch/"
-        }
-    ],
+    "authors": [{
+        "name": "terminal42 gmbh",
+        "homepage": "https://www.terminal42.ch/"
+    }],
+    "funding": [{
+        "type": "github",
+        "url": "https://github.com/terminal42"
+    }, {
+        "type": "other",
+        "url": "https://ko-fi.com/terminal42"
+    }],
     "require": {
+        "php": "^7.1 || ^8.0",
         "terminal42/webling-api": "^1.0@dev",
-        "symfony/http-kernel": "~2.7 || ^3.0",
-        "symfony/dependency-injection": "~2.7 || ^3.0",
-        "symfony/config": "~2.7 || ^3.0"
+        "symfony/http-kernel": "~2.7 || ^3.0 || ^4.0 || ^5.0",
+        "symfony/dependency-injection": "~2.7 || ^3.0 || ^4.0 || ^5.0",
+        "symfony/config": "~2.7 || ^3.0 || ^4.0 || ^5.0"
     },
     "require-dev": {
         "phpunit/phpunit": "~4.0"

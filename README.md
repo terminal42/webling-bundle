@@ -1,6 +1,6 @@
 # terminal42/webling-bundle
 
-A Symfony2 bundle for [our webling.ch API client](https://github.com/terminal42/webling-api).
+A Symfony bundle for [our webling.ch API client](https://github.com/terminal42/webling-api).
 This bundle is currently used for our own projects and is not stable at all.
 It thus might be subject to heavy changes.
 If you're interested in moving to a stable release (version 1.0.0) so you can be

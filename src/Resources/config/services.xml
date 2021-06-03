@@ -49,6 +49,7 @@
         </service>
 
         <service id="terminal42_webling.command.generate_entity" class="Terminal42\WeblingBundle\Command\GenerateEntityCommand">
+            <argument type="service" id="terminal42_webling.entity_manager" on-invalid="ignore" />
             <argument type="service" id="filesystem" on-invalid="ignore" />
             <tag name="console.command" />
         </service>

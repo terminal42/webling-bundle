@@ -1,17 +1,15 @@
 # terminal42/webling-bundle
 
 A Symfony bundle for [our webling.ch API client](https://github.com/terminal42/webling-api).
-This bundle is currently used for our own projects and is not stable at all.
-It thus might be subject to heavy changes.
-If you're interested in moving to a stable release (version 1.0.0) so you can be
-sure there are no BC breaks until version 2.0.0 (semver), please feel free to
-get in touch with us.
+
+This bundle is currently used for our own projects and might not support all cases.
+Feel free to open issues or pull requests for questions or feature requests.
 
 
 ## Installation
 
 ```bash
-$ composer.phar require terminal42/webling-bundle ^1.0
+$ composer.phar require terminal42/webling-bundle ^2.0@dev
 ```
 
 

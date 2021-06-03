@@ -39,6 +39,11 @@
             "Terminal42\\WeblingBundle\\": "src"
         }
     },
+    "extra": {
+        "branch-alias": {
+            "dev-main": "2.0.x-dev"
+        }
+    },
     "scripts": {
         "cs-fixer": [
             "vendor/bin/ecs check src/ --fix --ansi"

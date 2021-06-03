@@ -1,0 +1,56 @@
+parameters:
+    terminal42_webling.subdomain: ~
+    terminal42_webling.api_key: ~
+    terminal42_webling.api_version: !php/const \Terminal42\WeblingApi\EntityManager::API_VERSION
+    terminal42_webling.entity_factory: Terminal42\WeblingApi\EntityFactory
+
+services:
+    _defaults:
+        autowire: false
+        autoconfigure: true
+        public: false
+
+    Terminal42\WeblingApi\Client:
+        arguments:
+            - '%terminal42_webling.subdomain%'
+            - '%terminal42_webling.api_key%'
+            - '%terminal42_webling.api_version%'
+
+    Terminal42\WeblingApi\EntityFactory:
+        class: '%terminal42_webling.entity_factory%'
+
+    Terminal42\WeblingApi\EntityManager:
+        arguments:
+            - '@Terminal42\WeblingApi\Client'
+            - '@Terminal42\WeblingApi\EntityFactory'
+
+    Terminal42\WeblingApi\Repository\MemberRepository:
+        arguments:
+            - '@Terminal42\WeblingApi\EntityManager'
+
+    Terminal42\WeblingApi\Repository\MembergroupRepository:
+        arguments:
+            - '@Terminal42\WeblingApi\EntityManager'
+
+    Terminal42\WeblingApi\Repository\ArticleRepository:
+        arguments:
+            - '@Terminal42\WeblingApi\EntityManager'
+
+    Terminal42\WeblingApi\Repository\ArticlegroupRepository:
+        arguments:
+            - '@Terminal42\WeblingApi\EntityManager'
+
+    Terminal42\WeblingApi\Repository\DocumentRepository:
+        arguments:
+            - '@Terminal42\WeblingApi\EntityManager'
+
+    Terminal42\WeblingApi\Repository\DocumentgroupRepository:
+        arguments:
+            - '@Terminal42\WeblingApi\EntityManager'
+
+    Terminal42\WeblingBundle\Command\GenerateEntityCommand:
+        arguments:
+            - '@Terminal42\WeblingApi\EntityManager'
+            - '@?filesystem'
+        tags:
+            - 'console.command'

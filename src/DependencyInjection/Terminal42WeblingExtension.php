@@ -6,7 +6,7 @@ namespace Terminal42\WeblingBundle\DependencyInjection;
 
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
+use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 use Symfony\Component\HttpKernel\DependencyInjection\ConfigurableExtension;
 
 class Terminal42WeblingExtension extends ConfigurableExtension
@@ -16,12 +16,12 @@ class Terminal42WeblingExtension extends ConfigurableExtension
      */
     protected function loadInternal(array $mergedConfig, ContainerBuilder $container): void
     {
-        $loader = new XmlFileLoader(
+        $loader = new YamlFileLoader(
             $container,
             new FileLocator(__DIR__.'/../../config')
         );
 
-        $loader->load('services.xml');
+        $loader->load('services.yaml');
 
         $container->setParameter('terminal42_webling.subdomain', $mergedConfig['subdomain']);
         $container->setParameter('terminal42_webling.api_key', $mergedConfig['api_key']);

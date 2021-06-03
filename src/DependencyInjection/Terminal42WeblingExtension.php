@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Terminal42\WeblingBundle\DependencyInjection;
 
 use Symfony\Component\Config\FileLocator;
@@ -11,15 +13,12 @@ class Terminal42WeblingExtension extends ConfigurableExtension
 {
     /**
      * Configures the passed container according to the merged configuration.
-     *
-     * @param array            $mergedConfig
-     * @param ContainerBuilder $container
      */
-    protected function loadInternal(array $mergedConfig, ContainerBuilder $container)
+    protected function loadInternal(array $mergedConfig, ContainerBuilder $container): void
     {
         $loader = new XmlFileLoader(
             $container,
-            new FileLocator(__DIR__ . '/../Resources/config')
+            new FileLocator(__DIR__.'/../Resources/config')
         );
 
         $loader->load('services.xml');

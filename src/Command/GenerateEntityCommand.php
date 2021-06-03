@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Terminal42\WeblingBundle\Command;
 
 use Symfony\Component\Filesystem\Filesystem;
@@ -16,7 +18,7 @@ class GenerateEntityCommand extends BaseCommand
         parent::__construct($filesystem);
     }
 
-    protected function configure()
+    protected function configure(): void
     {
         parent::configure();
 

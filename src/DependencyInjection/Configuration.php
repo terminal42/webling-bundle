@@ -9,17 +9,12 @@ use Symfony\Component\Config\Definition\ConfigurationInterface;
 
 class Configuration implements ConfigurationInterface
 {
-    /**
-     * Generates the configuration tree builder.
-     *
-     * @return TreeBuilder The tree builder
-     */
-    public function getConfigTreeBuilder()
+    public function getConfigTreeBuilder(): TreeBuilder
     {
-        $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('terminal42_webling');
+        $treeBuilder = new TreeBuilder('terminal42_webling');
 
-        $rootNode
+        $treeBuilder
+            ->getRootNode()
             ->children()
                 ->scalarNode('subdomain')
                     ->isRequired()
